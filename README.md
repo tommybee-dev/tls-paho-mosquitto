@@ -143,13 +143,14 @@ subscribe:
 	-a subscribe -b 192.9.112.155 -p 8883 -e resources/ca/ca.crt -f resources/ca/wap1.crt -y resources/ca/wap1.key -v true -z secret
 	
 batch file: run_secu_sub.bat
-![subscrbe command script](/tls-paho-mosquitto/blob/master/screenshot/command_sub.png?raw=true "subscrbe")
+![subscrbe command script](https://raw.githubusercontent.com/tommybee-dev/tls-paho-mosquitto/master/screenshot/command_sub.png?raw=true "subscrbe")
 	
 publish:
 	-a publish -b 192.9.112.155 -p 8883 -e resources/ca/ca.crt -f resources/ca/wap1.crt -y resources/ca/wap1.key -v true -z secret -m 'this is a message from me'
 
 batch file: run_secu_pub.bat
-![publish command script](/tls-paho-mosquitto/blob/master/screenshot/command_sub.png?raw=true "publish")
+
+![publish command script](https://raw.githubusercontent.com/tommybee-dev/tls-paho-mosquitto/master/screenshot/command_pub.png?raw=true "publish")
 
 
 # note: 
