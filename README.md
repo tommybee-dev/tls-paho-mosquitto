@@ -153,6 +153,25 @@ batch file: run_secu_pub.bat
 
 ![publish command script](https://raw.githubusercontent.com/tommybee-dev/tls-paho-mosquitto/master/screenshot/command_pub.png?raw=true "publish")
 
+It is also customized a GUI version of paho client by java's swing api.. you can check the file name MQTTFrame.java in the org.eclipse.paho.sample.utility package.
+
+![main gui](https://github.com/tommybee-dev/tls-paho-mosquitto/blob/master/screenshot/main.png?raw=true "Swing main")
+
+I have the Tls check box only which should be checked from the first loading.
+
+Let's try to connect the mosquitto broker server with tls by clicking connect button.
+then type the topic name.
+set the subscribe button and publish button in turn.
+
+![connect gui](https://github.com/tommybee-dev/tls-paho-mosquitto/blob/master/screenshot/main_connect.png?raw=true "Swing main")
+
+You can see the line on the history panel without error that means you've done and ready to communicate the mosquitto broker server.
+
+Make your own message and see the publishing message pop the subscribe panel up as you click publish button.
+
+![connect gui](https://github.com/tommybee-dev/tls-paho-mosquitto/blob/master/screenshot/pub_sub_msg.png?raw=true "Swing main")
+
+
 
 # note: 
 Check exec directory if all certificate files in the ca directory in the resources folder
