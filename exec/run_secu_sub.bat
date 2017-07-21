@@ -1,0 +1,3 @@
+call setenv.bat
+java -cp . LauncherBootstrap -verbose -executablename mqtt_paho_simple_subscriber mqtt_paho_simple_subscriber_secure
+pause ...

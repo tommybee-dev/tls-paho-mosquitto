@@ -1,0 +1,3 @@
+call setenv.bat
+java -cp . LauncherBootstrap -verbose -executablename mqtt_paho_simple_publisher mqtt_paho_simple_publisher
+pause ...

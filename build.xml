@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="mqtt.paho.cli" default="mqtt.paho.cli" basedir=".">
+	<description> mqtt client paho service </description>
+	<!-- set global properties for this build -->
+	<property name="version" value="0.1"/>
+	<property name="manifest-version" value="0.1"/>
+	<property name="src" location="src"/>
+	<property name="build" location="build"/>
+	<property name="dist"  location="dist"/>
+	<property name="common.lib.dir" location="C:/DEV/LIB/JAVA/bouncycastle"/>
+	<property name="paho.lib.dir" location="libs"/>
+	<property name="paho.dir" location="exec"/>
+	<property name="manifest" value="src/META-INF/MANIFEST.MF"/>
+             
+	<property name="main.class" value="org.eclipse.paho.sample.mqttv3app.Sample"/>
+	<property name="main.name" value="MQTT Paho client service"/>
+	<property name="jar.name"  value="mqtt-paho-cli"/>
+	
+	<patternset id="meta.files">
+		<include name="**/*" />
+	</patternset>
+	
+	<path id="compile.classpath">
+		<fileset dir="${common.lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${paho.lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="init">
+	<!-- Create the time stamp -->
+	<tstamp/>
+	<!-- Create the build directory structure used by compile -->
+	<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init" description="compile the source " >
+		<javac srcdir="${src}" destdir="${build}" source="1.7" debug="true" encoding="UTF-8">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution" >
+	
+		<mkdir dir="${dist}/lib"/>
+		<copy todir="${build}/">
+			<fileset dir="{src}/../files"/>
+		</copy>
+		
+		<delete file="${current.lib.dir}/${jar.name}.jar"/>
+		<jar destfile="${dist}/lib/${jar.name}.jar" basedir="${build}" manifest="${manifest}">
+			<manifest>
+				<attribute name="Manifest-Version" value="1.0"/>
+				<attribute name="Main-Class" value="${main.class}"/>
+				<attribute name="Build-Jdk" value="1.7.0_51"/>
+				<attribute name="Created-By" value="Apache Maven"/>
+				<attribute name="Bundle-ManifestVersion" value="2"/>
+				<attribute name="Built-By" value="e4Build"/>
+			</manifest>
+		</jar>
+		
+		<copy todir="${paho.dir}">
+		<fileset dir="${dist}/lib">
+		<include name="${jar.name}.jar"/>
+		</fileset>
+	</copy>
+	
+	
+	</target>
+
+	<target name="mqtt.paho.cli" depends="dist" description="make own jar file" >
+	</target>
+
+	<target name="clean" description="clean up" >
+		<!-- <echo message="Hello, bin/${jar.name}.jar"/> -->
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+		<delete file="${paho.dir}/plugins/${jar.name}.jar"/>
+	</target>
+
+</project>
