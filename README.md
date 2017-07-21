@@ -172,7 +172,6 @@ Make your own message and see the publishing message pop the subscribe panel up 
 ![connect gui](https://github.com/tommybee-dev/tls-paho-mosquitto/blob/master/screenshot/pub_sub_msg.png?raw=true "Swing main")
 
 
-
 # note: 
 Check exec directory if all certificate files in the ca directory in the resources folder
 
