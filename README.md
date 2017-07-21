@@ -143,6 +143,7 @@ subscribe:
 	-a subscribe -b 192.9.112.155 -p 8883 -e resources/ca/ca.crt -f resources/ca/wap1.crt -y resources/ca/wap1.key -v true -z secret
 	
 batch file: run_secu_sub.bat
+
 ![subscrbe command script](https://raw.githubusercontent.com/tommybee-dev/tls-paho-mosquitto/master/screenshot/command_sub.png?raw=true "subscrbe")
 	
 publish:
